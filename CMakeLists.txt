@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.5)
 
 project(test VERSION 0.1 LANGUAGES CXX)
 
+add_compile_definitions(__STDC_LIMIT_MACROS)
+add_compile_definitions(__STDC_CONSTANT_MACROS)
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
