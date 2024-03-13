@@ -55,8 +55,7 @@ void MainWindow::connectToSlavers(void)
             {
                 ui->textBrowser->append(QString::asprintf("%d slaves found and configured.\n",ec_slavecount));
                 ec_configdc();
-                /* 配置DC周期 周期理想的状态是和定时器的周期一样，但是由于定时器精度不够，所以周期需要增加，测试不建议使用DC同步模式 */
-                ec_dcsync0(1, TRUE, 25000000,0);
+                
                 ec_config_map(&IOmap);
                 ui->textBrowser->append("Slaves mapped, state to SAFE_OP.\n");
                 ec_statecheck(0, EC_STATE_SAFE_OP,  EC_TIMEOUTSTATE * 4);
@@ -71,13 +70,13 @@ void MainWindow::connectToSlavers(void)
                 pdotimer->start(20);
                 /* OP状态请求 */
                 ec_writestate(0);
-                chk = 210;
+                chk = 200;
                 /* 等待所有从站进入OP状态 */
                 do
                 {
-                    ec_statecheck(0, EC_STATE_OPERATIONAL, 50000);
                     ec_send_processdata();
                     ec_receive_processdata(EC_TIMEOUTRET);
+                    ec_statecheck(0, EC_STATE_OPERATIONAL, 50000);
                 }
                 while (chk-- && (ec_slave[0].state != EC_STATE_OPERATIONAL));
                 ui->textBrowser->append(QString::asprintf("chk =%d,%d",chk,ec_slave[1].ALstatuscode));
