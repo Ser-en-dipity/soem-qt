@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>ConnectWindow</class>
+ <widget class="QMainWindow" name="ConnectWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,46 +14,38 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="connectBtn">
+   <widget class="QComboBox" name="eth_comboBox">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
+      <width>191</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="con_pushButton">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
       <width>81</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>与驱动器通信</string>
+     <string>连接</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="paraBtn">
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>0</y>
-      <width>80</width>
-      <height>21</height>
+      <x>10</x>
+      <y>40</y>
+      <width>501</width>
+      <height>471</height>
      </rect>
     </property>
-    <property name="text">
-     <string>参数</string>
-    </property>
-   </widget>
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>39</y>
-      <width>381</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="page"/>
-    <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

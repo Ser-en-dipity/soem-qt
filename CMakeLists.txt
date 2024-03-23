@@ -20,6 +20,12 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        connect.cpp
+        connect.h
+        connect.ui
+        csp.h
+        csp.cpp
+        csp.ui
 )
 
 set (HEADER_SOURCES
@@ -62,6 +68,13 @@ else()
         )
     endif()
 endif()
+
+qt_add_resources(test "images"
+    PREFIX "D:/Qt-project/test"
+    FILES
+        images/open.png
+
+)
 
 target_link_libraries(test PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${LIB_SOURCES})
 
